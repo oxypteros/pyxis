@@ -1,0 +1,5 @@
+<svg version="1.1" viewBox="0 0 8.0004 8" xmlns="http://www.w3.org/2000/svg">
+  <style>@media (prefers-color-scheme: dark){path{fill:#a4a4c4}}@media (prefers-color-scheme: light){path{fill:#48486f}}</style>
+  <path d="M8.012 4a3.993 3.993 0 0 0-2.498.865A4.002 4.002 0 0 0 4.393 9.73 4.003 4.003 0 0 0 8.887 11.9 4.002 4.002 0 0 0 12 8a.25.25 0 0 0-.25-.25.25.25 0 0 0-.25.25c0 1.636-1.13 3.05-2.725 3.412a3.498 3.498 0 0 1-2.951-6.154 3.498 3.498 0 0 1 4.367.014.25.25 0 0 0 .352-.04.25.25 0 0 0-.037-.351A3.997 3.997 0 0 0 8.012 4z" transform="translate(-4 -4)"/>
+  <path d="M10 8a2 2 0 0 1-2 2 2 2 0 0 1-2-2 2 2 0 0 1 2-2 2 2 0 0 1 2 2z" transform="translate(-4 -4)"/>
+</svg>
