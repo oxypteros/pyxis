@@ -1,27 +1,50 @@
 // src/components/ui/icon.tsx
 import type React from "react";
+import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
+const iconVariants = cva(
+  // Base styles applied to ALL icons
+  "shrink-0",
+  {
+    variants: {
+      variant: {
+        default: "size-6",
+        stack: "size-4 sm:size-5 fill-gray-700",
+        "project-stack": "size-4 fill-gray-700",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+    },
+  },
+);
+
 // Import library icons
-import { ChevronDown, ExternalLink, Menu, X } from "lucide-react";
+import { ChevronDown, X, ArrowUpRight, } from "lucide-react";
 
 const iconMap = {
   // Sprite Icons
   logo: { type: "sprite" as const, id: "oxy-logo" },
   github: { type: "sprite" as const, id: "icon-github" },
   bluesky: { type: "sprite" as const, id: "icon-bluesky" },
+  hugo: { type: "sprite" as const, id: "icon-hugo" },
+  javascript: { type: "sprite" as const, id: "icon-javascript" },
+  tailwindcss: { type: "sprite" as const, id: "icon-tailwindcss" },
+  typescript: { type: "sprite" as const, id: "icon-typescript" },
+  nextjs: { type: "sprite" as const, id: "icon-nextjs" },
 
   // Library Icons
   "chevron-down": { type: "library" as const, Component: ChevronDown },
-  "external-link": { type: "library" as const, Component: ExternalLink },
-  menu: { type: "library" as const, Component: Menu },
+  "external-link": { type: "library" as const, Component: ArrowUpRight },
   close: { type: "library" as const, Component: X },
 };
 
 export type IconName = keyof typeof iconMap;
 
-type IconProps = React.SVGProps<SVGSVGElement> & {
-  name: IconName;
+type IconProps = React.SVGProps<SVGSVGElement> &
+  VariantProps<typeof iconVariants> & {
+    name: IconName;
   /**
    * If true, the icon is treated as semantic and will not be hidden from
    * screen readers.
@@ -33,6 +56,7 @@ type IconProps = React.SVGProps<SVGSVGElement> & {
 export const Icon = ({
   name,
   className,
+  variant, 
   isSemantic = false,
   ...props
 }: IconProps): React.JSX.Element | null => {
@@ -45,28 +69,23 @@ export const Icon = ({
   }
 
   const iconData = iconMap[name];
-  // Default classes
-  const baseClass = "size-6";
-  
+
   const accessibilityProps = isSemantic
     ? { role: "img" }
     : { "aria-hidden": true };
-
+ const finalClassName = cn(iconVariants({ variant, className }));
   switch (iconData.type) {
     case "sprite":
       return (
         <svg
-          className={cn(baseClass, className)}
-          {...accessibilityProps}
-          {...props}
-        >
+          className={finalClassName} {...accessibilityProps} {...props}>
           <use href={`#${iconData.id}`} />
         </svg>
       );
     case "library":
       return (
         <iconData.Component
-          className={cn(baseClass, className)}
+          className={finalClassName}
           {...accessibilityProps}
           {...props}
         />
