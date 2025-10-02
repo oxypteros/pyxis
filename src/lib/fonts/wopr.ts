@@ -4,7 +4,7 @@ import localFont from "next/font/local";
 export const warText = localFont({
   src: [
     {
-      path: "../../../public/fonts/wartext/wartext.otf.woff2",
+      path: "../../assets/fonts/wartext/wartext.otf.woff2",
       style: "normal",
     },
   ],

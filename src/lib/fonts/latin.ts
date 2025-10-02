@@ -4,7 +4,7 @@ import localFont from "next/font/local";
 export const inter = localFont({
   src: [
     {
-      path: "../../../public/fonts/inter-4.1/inter-EN-subset.woff2",
+      path: "../../assets/fonts/inter-4.1/inter-EN-subset.woff2",
       weight: "100 900",
       style: "normal",
     },
@@ -25,7 +25,7 @@ export const inter = localFont({
 export const jetBrains = localFont({
   src: [
     {
-      path: "../../../public/fonts/jetBrainsMono-2.304/jetBrainsMono-EN-subset.woff2",
+      path: "../../assets/fonts/jetBrainsMono-2.304/jetBrainsMono-EN-subset.woff2",
       weight: "100 900",
       style: "normal",
     },
@@ -46,7 +46,7 @@ export const jetBrains = localFont({
 export const interItalic = localFont({
   src: [
     {
-      path: "../../../public/fonts/inter-4.1/inter-EN_italic-subset.woff2",
+      path: "../../assets/fonts/inter-4.1/inter-EN_italic-subset.woff2",
       weight: "100 900",
       style: "italic",
     },
@@ -67,7 +67,7 @@ export const interItalic = localFont({
 export const jetBrainsItalic = localFont({
   src: [
     {
-      path: "../../../public/fonts/jetBrainsMono-2.304/jetBrainsMono-EN_italic-subset.woff2",
+      path: "../../assets/fonts/jetBrainsMono-2.304/jetBrainsMono-EN_italic-subset.woff2",
       weight: "100 900",
       style: "italic",
     },
