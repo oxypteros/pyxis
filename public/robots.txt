@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Better safe than sorry
+Disallow: /_next/
+
+# Sitemap
+Sitemap: https://oxypteros.com/sitemap.xml
