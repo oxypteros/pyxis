@@ -8,6 +8,7 @@ import { Intro } from "@/components/sections/homepage/Intro";
 import { HomeSection } from "@/components/sections/homepage/HomeSection";
 import { AlphaDevCard } from "@/components/sections/homepage/AlphaDevCard";
 import { ProjectsGrid } from "@/components/sections/homepage/ProjectsGrid";
+import { CopyCard } from "@/components/sections/homepage/CopyCard";
 
 
 const META_TITLE = "Oxypteros — Web Developer & Narrative Designer";
@@ -60,6 +61,9 @@ export default function Home() {
       <HomeSection title="The Code">
         <AlphaDevCard />
         <ProjectsGrid />
+      </HomeSection>
+      <HomeSection title="The Copy">
+        <CopyCard />
       </HomeSection>
     </>
   );
