@@ -4,7 +4,7 @@ import type React from "react";
 import { Link } from "@/components/ui/link";
 
 export const CopyCard = (): React.JSX.Element => (
-  <div className="mt-42 flex min-h-screen w-full flex-col items-center">
+  <div className="mt-42 flex w-full flex-col items-center">
     <div className="flex flex-col gap-8 md:flex-row">
       <div className="flex flex-col border border-gray-100 px-4 py-8 text-balance sm:p-8 md:w-1/2">
         <h3 className="inter-heading text-lg text-gray-900 sm:text-xl">
@@ -30,10 +30,9 @@ export const CopyCard = (): React.JSX.Element => (
             href="https://alpha.oxypteros.com/docs/"
             variant="subtitled"
             isExternal
-            hideIndicator
-            aria-label="Opens in a new tab:"
+            showExternalIcon={false}
           >
-            <span>The Architect</span>
+            <span>The Architect</span>{" "}
             <span className="text-xs font-light group-hover:text-gray-900">
               See a sample documentation
             </span>
@@ -65,10 +64,9 @@ export const CopyCard = (): React.JSX.Element => (
             href="https://alpha.oxypteros.com/get-started/"
             variant="subtitled"
             isExternal
-            hideIndicator
-            aria-label="Opens in a new tab:"
+            showExternalIcon={false}
           >
-            <span>The Guide</span>
+            <span>The Guide</span>{" "}
             <span className="text-xs font-light group-hover:text-gray-900">
               Follow a step-by-step tutorial
             </span>

@@ -7,7 +7,7 @@ import { Icon } from "@/components/ui/icon";
 import alphaPreviewDesktop from "@/assets/img/alpha-preview-desktop.png";
 
 export const AlphaDevCard = (): React.JSX.Element => (
-  <div className="mt-8 flex min-h-screen w-full flex-col items-center justify-center">
+  <div className="mt-48 flex w-full flex-col items-center">
     <div className="grid grid-cols-12 grid-rows-12">
       <div className="z-10 col-span-full row-start-1 row-end-5 mx-2 flex flex-col shadow-xs sm:row-start-1 sm:row-end-7 md:col-start-1 md:col-end-7 md:row-start-2 md:row-end-12 md:mx-0 md:items-center md:justify-center">
         <Image
@@ -22,7 +22,7 @@ export const AlphaDevCard = (): React.JSX.Element => (
         />
       </div>
       <div className="bg-background z-20 col-span-full row-start-3 row-end-13 flex flex-col rounded-xs border border-gray-200 px-4 py-8 shadow sm:row-start-5 md:col-start-5 md:col-end-13 md:row-span-full md:items-start md:px-8">
-        <h3 className="inter-heading text-lg text-gray-900 sm:text-xl md:text-xl lg:text-2xl xl:text-3xl xl:font-extralight">
+        <h3 className="inter-heading text-lg text-gray-900 sm:text-xl md:text-2xl xl:text-3xl xl:font-extralight">
           Alpha: The Worry-Free Hugo Theme
         </h3>
         <div className="text-foreground mt-8 space-y-4 text-base font-light md:text-lg">
@@ -54,7 +54,7 @@ export const AlphaDevCard = (): React.JSX.Element => (
               variant="button"
               href="https://alpha.oxypteros.com"
               isExternal
-              hideIndicator
+              showExternalIcon={false}
             >
               Preview the theme
             </Link>
@@ -63,7 +63,7 @@ export const AlphaDevCard = (): React.JSX.Element => (
               className="text-sm font-medium"
               href="https://github.com/oxypteros/alpha"
               isExternal
-              hideIndicator
+              showExternalIcon={false}
             >
               Explore on GitHub
             </Link>

@@ -21,7 +21,7 @@ export const Footer = ({ className }: FooterProps): React.JSX.Element => {
   return (
     <footer
       className={cn(
-        "bg-background flex w-full flex-col justify-center text-center font-sans text-xs text-slate-700 sm:flex-row sm:justify-between",
+        "bg-background mt-42 mb-2 flex w-full flex-col justify-center text-center font-sans text-xs text-gray-700 sm:flex-row sm:justify-between",
         className,
       )}
     >

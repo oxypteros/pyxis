@@ -21,7 +21,15 @@ const iconVariants = cva(
 );
 
 // Import library icons
-import { ChevronDown, X, ArrowUpRight, } from "lucide-react";
+import {
+  ChevronDown,
+  X,
+  ArrowUpRight,
+  LoaderCircle,
+  Mail,
+  CircleAlert,
+  CircleCheck,
+} from "lucide-react";
 
 const iconMap = {
   // Sprite Icons
@@ -33,11 +41,16 @@ const iconMap = {
   tailwindcss: { type: "sprite" as const, id: "icon-tailwindcss" },
   typescript: { type: "sprite" as const, id: "icon-typescript" },
   nextjs: { type: "sprite" as const, id: "icon-nextjs" },
+  pi: { type: "sprite" as const, id: "icon-pi" },
 
   // Library Icons
   "chevron-down": { type: "library" as const, Component: ChevronDown },
   "external-link": { type: "library" as const, Component: ArrowUpRight },
   close: { type: "library" as const, Component: X },
+  loader: { type: "library" as const, Component: LoaderCircle },
+  mail: { type: "library" as const, Component: Mail },
+  alert: { type: "library" as const, Component: CircleAlert },
+  check: { type: "library" as const, Component: CircleCheck },
 };
 
 export type IconName = keyof typeof iconMap;
@@ -45,18 +58,18 @@ export type IconName = keyof typeof iconMap;
 type IconProps = React.SVGProps<SVGSVGElement> &
   VariantProps<typeof iconVariants> & {
     name: IconName;
-  /**
-   * If true, the icon is treated as semantic and will not be hidden from
-   * screen readers.
-   * @default false
-   */
-  isSemantic?: boolean;
-};
+    /**
+     * If true, the icon is treated as semantic and will not be hidden from
+     * screen readers.
+     * @default false
+     */
+    isSemantic?: boolean;
+  };
 
 export const Icon = ({
   name,
   className,
-  variant, 
+  variant,
   isSemantic = false,
   ...props
 }: IconProps): React.JSX.Element | null => {
@@ -73,12 +86,11 @@ export const Icon = ({
   const accessibilityProps = isSemantic
     ? { role: "img" }
     : { "aria-hidden": true };
- const finalClassName = cn(iconVariants({ variant, className }));
+  const finalClassName = cn(iconVariants({ variant, className }));
   switch (iconData.type) {
     case "sprite":
       return (
-        <svg
-          className={finalClassName} {...accessibilityProps} {...props}>
+        <svg className={finalClassName} {...accessibilityProps} {...props}>
           <use href={`#${iconData.id}`} />
         </svg>
       );

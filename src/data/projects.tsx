@@ -4,7 +4,7 @@ import type { StaticImageData } from "next/image";
 
 // Import images
 import woprPreview from "@/assets/img/wopr-preview.gif";
-import pyxisPreview from "@/assets/img/pyxis-title.png";
+import pyxisPreview from "@/assets/img/pyxis-preview-desktop.png";
 import type { IconName } from "@/components/ui/icon";
 
 type Project = {
@@ -20,7 +20,7 @@ export const projects: Project[] = [
     href: "https://github.com/oxypteros/wopr-showcase",
     imageSrc: woprPreview,
     imageAlt: "A GIF showing the WOPR terminal logon prompt.",
-    title: "WOPR Terminal",
+    title: "WOPR Terminal ",
     description: (
       <p>
         A terminal application that recreates the narrative experience of
@@ -34,7 +34,7 @@ export const projects: Project[] = [
     href: "https://github.com/oxypteros/pyxis",
     imageSrc: pyxisPreview,
     imageAlt: "The greek word Pyxis",
-    title: "Pyxis Portfolio",
+    title: "Pyxis Portfolio ",
     description: (
       <p className="text-pretty">
         A portfolio built as its own case study in systemic design. A public

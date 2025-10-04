@@ -28,9 +28,9 @@ export const Header = ({ className }: HeaderProps): React.JSX.Element => {
             variant="icon"
             href="https://bsky.app/profile/oxypteros.com"
             isExternal
-            hideIndicator
+            showExternalIcon={false}
             className="group shrink-0"
-            aria-label="Visit my BlueSky Profile (opens in a new tab)"
+            aria-label="Visit my BlueSky Profile"
           >
             <Icon
               name="bluesky"
@@ -41,9 +41,9 @@ export const Header = ({ className }: HeaderProps): React.JSX.Element => {
             variant="icon"
             href="https://github.com/oxypteros"
             isExternal
-            hideIndicator
+            showExternalIcon={false}
             className="group shrink-0"
-            aria-label="Visit my GitHub Profile (opens in a new tab)"
+            aria-label="Visit my GitHub Profile"
           >
             <Icon
               name="github"
