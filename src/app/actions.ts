@@ -1,5 +1,5 @@
 // src/app/actions.ts
-"use server"; 
+"use server";
 
 import type React from "react";
 import { Resend } from "resend";
@@ -21,7 +21,7 @@ if (!fromEmail) {
   throw new Error("Missing or empty environment variable: EMAIL_SENDER");
 }
 
-// EMAIL_RECIPIENT: Email address to get the message 
+// EMAIL_RECIPIENT: Email address to get the message
 const toEmail = process.env.EMAIL_RECIPIENT;
 if (!toEmail) {
   throw new Error("Missing or empty environment variable: EMAIL_RECIPIENT");
@@ -34,7 +34,7 @@ const contactFormSchema = z.object({
   email: z.string().email({ message: "Please enter a valid email address." }),
   message: z
     .string()
-    .min(10, { message: "Message must be at least 10 characters long." }),
+    .min(10, { message: "Your message must be at least 10 characters long." }),
 });
 
 interface ContactFormState {
@@ -44,24 +44,25 @@ interface ContactFormState {
 
 export const submitContactForm = async (
   prevState: ContactFormState,
-  formData: FormData
+  formData: FormData,
 ): Promise<ContactFormState> => {
-
   // First Honeypot Layer: If this is filled out, it's a bot.
   if (formData.get("userNickname")) {
     return { success: true, message: "Thank you for your submission!" };
   }
 
-  // Second Honeypot Layer:If the form is submitted in under the minimum 
+  // Second Honeypot Layer:If the form is submitted in under the minimum
   // threshold, it's a bot or The Flash.
-const timestamp = formData.get("formTimestamp");
+  const timestamp = formData.get("formTimestamp");
   if (timestamp) {
     const formLoadTime = parseInt(timestamp.toString(), 10);
     const submissionTime = Date.now();
     const timeDifference = submissionTime - formLoadTime;
 
     if (timeDifference < MIN_SUBMISSION_TIME_MS) {
-      console.warn(`Spam detected (time-trap): Submission took ${timeDifference}ms.`);
+      console.warn(
+        `Spam detected (time-trap): Submission took ${timeDifference}ms.`,
+      );
       return { success: true, message: "Thank you for your submission!" };
     }
   } else {
@@ -88,14 +89,17 @@ const timestamp = formData.get("formTimestamp");
   // API Call
   try {
     await resend.emails.send({
-      from: fromEmail, 
+      from: fromEmail,
       to: toEmail,
       subject: "Message from Oxypteros Portfolio",
       replyTo: senderEmail,
       react: ContactFormEmail({ senderEmail, message }) as React.ReactElement,
     });
 
-    return { success: true, message: "Your message has been sent!" };
+    return {
+      success: true,
+      message: "Thank you for your inquiry. We’ll reply as soon as possible.",
+    };
   } catch (error) {
     console.error("Email sending error:", error);
     return {

@@ -1,5 +1,6 @@
 // src/components/Gatekeeper.tsx
 "use client";
+
 import React from "react";
 import { useState, useRef } from "react";
 import {
@@ -9,7 +10,8 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { Button } from "@/components/ui/button";
-import { toast } from "@/lib/toast";
+import { Icon } from "@/components/ui/icon";
+import { toast, type ToastProps } from "@/lib/toast";
 
 type GatekeeperProps = {
   /**
@@ -21,12 +23,14 @@ type GatekeeperProps = {
   children?: React.ReactNode;
 };
 
-const johnSnowToastProps = {
+const johnSnowToastProps: ToastProps = {
+  showIcon: true,
+  variant: "error",
   title: "You know nothing John Snow",
   description: "Try again with a keyboard!",
 };
 
-const insanityToastProps = {
+const insanityToastProps: ToastProps = {
   title: "Insanity",
   description: (
     <>
@@ -34,7 +38,7 @@ const insanityToastProps = {
         ...is doing the same thing over and over again and expecting different
         results.
       </p>
-      <p className="mt-2 text-right text-slate-900 italic">
+      <p className="mt-2 text-right text-gray-800 italic">
         — Albert Einstein <span className="text-xs not-italic">(probably)</span>
       </p>
     </>
@@ -80,15 +84,19 @@ export const Gatekeeper = ({
         }
       };
 
-      const toastProps =
+      const baseToastProps =
         clickCount.current >= 2 ? insanityToastProps : johnSnowToastProps;
+
       const duration = clickCount.current >= 3 ? 10000 : 5000;
 
-      toast(toastProps, {
+      const finalToastProps: ToastProps = {
+        ...baseToastProps,
         duration,
         onDismiss: onDismissOrClose,
         onAutoClose: onDismissOrClose,
-      });
+      };
+
+      toast(finalToastProps);
     }
   };
   if (asChild && React.isValidElement(children)) {
@@ -107,15 +115,13 @@ export const Gatekeeper = ({
               size="pi"
               aria-label="Shhh... A Hollywoodian secret"
             >
-              <svg
-                className="size-2 fill-gray-800 transition-colors duration-300 group-hover:fill-gray-950"
-                aria-hidden="true"
-              >
-                <use href="#icon-pi"></use>
-              </svg>
+              <Icon
+                name="pi"
+                className="size-2 fill-gray-700 transition-colors duration-300 group-hover:fill-gray-900"
+              />
             </Button>
           </TooltipTrigger>
-          <TooltipContent className="mr-2" aria-label="Try to Google">
+          <TooltipContent className="mr-2">
             <p>
               The <strong className="font-medium">Praetorians</strong> hacked{" "}
               <em>&ldquo;The Net&rdquo;</em>
