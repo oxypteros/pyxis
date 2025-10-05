@@ -1,0 +1,97 @@
+/* src/app/(wopr)/wopr/wopr.module.css */
+@font-face {
+  font-family: "WarText";
+  src: var(--font-wopr);
+}
+.woprPage {
+  --wopr-background: oklch(0.1549 0.0337 281.74);
+  --wopr-foreground: oklch(92.3% 0.068 221.2 / 0.9);
+
+  background-color: var(--wopr-background);
+  font-family: "WarText", monospace;
+  color: var(--wopr-foreground);
+}
+.woprFlicker {
+  animation: woprTextFlicker 0.1s infinite;
+}
+@keyframes woprTextFlicker {
+  0% {
+    text-shadow:
+      0 0 2px rgba(234, 54, 175, 0.4),
+      0 0 3px rgba(117, 250, 105, 0.3),
+      0 0 5px rgba(172, 235, 252, 0.5),
+      0 0 10px rgba(172, 235, 252, 0.4),
+      0 0 20px rgba(172, 235, 252, 0.3);
+  }
+
+  95% {
+    text-shadow:
+      1px 0 1px rgba(234, 54, 175, 0.7),
+      -1px 0 1px rgba(117, 250, 105, 0.5),
+      0 0 5px rgba(172, 235, 252, 0.6),
+      0 0 10px rgba(172, 235, 252, 0.5),
+      0 0 20px rgba(172, 235, 252, 0.4);
+  }
+  96% {
+    text-shadow:
+      -1px 0 1px rgba(234, 54, 175, 0.7),
+      1px 0 1px rgba(117, 250, 105, 0.5),
+      0 0 5px rgba(172, 235, 252, 0.6),
+      0 0 10px rgba(172, 235, 252, 0.5),
+      0 0 20px rgba(172, 235, 252, 0.4);
+  }
+  97% {
+    text-shadow:
+      1px 0 1px rgba(234, 54, 175, 0.7),
+      -1px 0 1px rgba(117, 250, 105, 0.5),
+      0 0 5px rgba(172, 235, 252, 0.6),
+      0 0 10px rgba(172, 235, 252, 0.5),
+      0 0 20px rgba(172, 235, 252, 0.4);
+  }
+
+  98% {
+    text-shadow:
+      0 0 2px rgba(234, 54, 175, 0.4),
+      0 0 3px rgba(117, 250, 105, 0.3),
+      0 0 5px rgba(172, 235, 252, 0.5),
+      0 0 10px rgba(172, 235, 252, 0.4),
+      0 0 20px rgba(172, 235, 252, 0.3);
+  }
+  100% {
+    text-shadow:
+      0 0 2px rgba(234, 54, 175, 0.4),
+      0 0 3px rgba(117, 250, 105, 0.3),
+      0 0 5px rgba(172, 235, 252, 0.5),
+      0 0 10px rgba(172, 235, 252, 0.4),
+      0 0 20px rgba(172, 235, 252, 0.3);
+  }
+}
+
+@keyframes countdown3s {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+.animateCountdown3s {
+  animation: countdown3s 3s linear forwards;
+}
+
+@keyframes countdown5s {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+.animateCountdown5s {
+  animation: countdown5s 5s linear forwards;
+}
+.woprInput {
+  caret-color: rgba(172, 235, 252, 1);
+  caret-shape: block;
+  display: block;
+}

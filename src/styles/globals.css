@@ -1,37 +1,123 @@
 @import "tailwindcss";
-
-
-@custom-variant dark (&:is(.dark *));
+@import "tw-animate-css";
 
 @theme inline {
- 
+  /* Font Families */
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains);
+  --font-sans-italic: var(--font-inter-italic);
+  --font-mono-italic: var(--font-jetbrains-italic);
+
+  /* Colors */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-brand: var(--brand);
+  --color-on-brand: var(--on-brand);
+  --color-slate-50: var(--slate-50);
+  --color-slate-100: var(--slate-100);
+  --color-slate-200: var(--slate-200);
+  --color-slate-300: var(--slate-300);
+  --color-slate-400: var(--slate-400);
+  --color-slate-500: var(--slate-500);
+  --color-slate-600: var(--slate-600);
+  --color-slate-700: var(--slate-700);
+  --color-slate-800: var(--slate-800);
+  --color-slate-900: var(--slate-900);
+  --color-slate-950: var(--slate-950);
+  --color-gray-50: var(--gray-50);
+  --color-gray-100: var(--gray-100);
+  --color-gray-200: var(--gray-200);
+  --color-gray-300: var(--gray-300);
+  --color-gray-400: var(--gray-400);
+  --color-gray-500: var(--gray-500);
+  --color-gray-600: var(--gray-600);
+  --color-gray-700: var(--gray-700);
+  --color-gray-800: var(--gray-800);
+  --color-gray-900: var(--gray-900);
+  --color-github: var(--github-brand);
+  --color-bluesky: var(--bluesky-brand);
+  --color-focus-ring: var(--focus-ring);
+  --color-focus-form-ring: var(--focus-form-ring);
+  /* Shadows */
+  --inset-shadow-header: var(--inset-shadow-header);
+  --shadow-header: var(--shadow-header);
 }
 
 :root {
-  
-}
-
-.dark {
-  
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.3715 0 0);
+  --brand: oklch(0.5443 0.111 231.97);
+  --on-brand: oklch(97.59% 0.012 247.95);
+  --slate-50: oklch(0.9933 0.0011 197.14);
+  --slate-100: oklch(0.9779 0.0025 228.78);
+  --slate-200: oklch(0.8993 0.0119 239.92);
+  --slate-300: oklch(0.8192 0.0218 241.41);
+  --slate-400: oklch(0.7396 0.0319 239);
+  --slate-500: oklch(0.6561 0.0427 240.38);
+  --slate-600: oklch(0.5715 0.0485 240.47);
+  --slate-700: oklch(0.4835 0.0398 239.48);
+  --slate-800: oklch(0.395 0.0305 237.74);
+  --slate-900: oklch(0.2904 0.0211 240.01);
+  --slate-950: oklch(0.2169 0.013 233.22);
+  --gray-50: oklch(0.997 0 0);
+  --gray-100: oklch(0.9851 0 0);
+  --gray-200: oklch(0.9551 0 0);
+  --gray-300: oklch(0.9128 0 0);
+  --gray-400: oklch(0.8452 0 0);
+  --gray-500: oklch(0.7668 0 0);
+  --gray-600: oklch(0.6665 0 0);
+  --gray-700: oklch(0.5103 0 0);
+  --gray-800: oklch(0.3715 0 0);
+  --gray-900: oklch(0.2178 0 0);
+  --github-brand: oklch(0.2058 0.0016 17.29);
+  --bluesky-brand: oklch(0.6258 0.205 254.95);
+  --focus-ring: oklch(0.7368 0.157282 72.5672);
+  --focus-form-ring: oklch(0.2178 0 0);
+  --inset-shadow-header:
+    inset 0 -1px 0 0 var(--gray-300), inset 0 -2px 0 0 var(--gray-100),
+    inset 0 -3px 0 0 var(--gray-100), inset 0 -4px 0 0 var(--gray-200);
+  --shadow-header:
+    1px 0 0 0 var(--gray-200), 2px 0 0 0 var(--gray-100),
+    3px 0 0 0 var(--gray-100), 4px 0 0 0 var(--gray-300);
 }
 
 @layer base {
-  .b1 {
-    @apply border border-red-500;
+  body {
+    @apply bg-background text-foreground selection:bg-brand selection:text-on-brand font-sans;
   }
-  .b2 {
-    @apply border border-green-500;
+  body {
+    font-feature-settings:
+      "kern",
+      "case",
+      "dlig",
+      "frac",
+      "dnom" 0,
+      "numr" 0,
+      "frac" 0,
+      "subs" 0,
+      "sups" 0,
+      "sinf" 0,
+      "ss01",
+      "ss02",
+      "ss03",
+      "cv01";
+    text-rendering: optimizeLegibility;
   }
-    .b3 {
-    @apply border border-amber-500;
+  .mono-tagline {
+    font-feature-settings: "ss02";
   }
-  .bg1 {
-    @apply bg-red-500/50;
+  .inter-heading {
+    font-feature-settings: "cv06", "cv11", "cv11", "cv13", "cv07", "cv17";
   }
-  .bg2 {
-    @apply bg-green-500/50;
+  em {
+    @apply font-sans-italic italic;
   }
-    .bg3 {
-    @apply bg-amber-500/50;
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px var(--gray-50) inset !important;
+    background-color: var(--gray-50) !important; /* fallback */
+    -webkit-text-fill-color: var(--gray-900) !important;
   }
 }
