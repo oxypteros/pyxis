@@ -7,7 +7,6 @@
   --font-mono: var(--font-jetbrains);
   --font-sans-italic: var(--font-inter-italic);
   --font-mono-italic: var(--font-jetbrains-italic);
-  --font-wopr: var(--font-wopr);
 
   /* Colors */
   --color-background: var(--background);
@@ -35,8 +34,6 @@
   --color-gray-700: var(--gray-700);
   --color-gray-800: var(--gray-800);
   --color-gray-900: var(--gray-900);
-  --color-wopr-background: var(--wopr-background);
-  --color-wopr-foreground: var(--wopr-foreground);
   --color-github: var(--github-brand);
   --color-bluesky: var(--bluesky-brand);
   --color-focus-ring: var(--focus-ring);
@@ -72,8 +69,6 @@
   --gray-700: oklch(0.5103 0 0);
   --gray-800: oklch(0.3715 0 0);
   --gray-900: oklch(0.2178 0 0);
-  --wopr-background: oklch(0.1549 0.0337 281.74);
-  --wopr-foreground: oklch(92.3% 0.068 221.2);
   --github-brand: oklch(0.2058 0.0016 17.29);
   --bluesky-brand: oklch(0.6258 0.205 254.95);
   --focus-ring: oklch(0.7368 0.157282 72.5672);
@@ -114,6 +109,9 @@
   .inter-heading {
     font-feature-settings: "cv06", "cv11", "cv11", "cv13", "cv07", "cv17";
   }
+  em {
+    @apply font-sans-italic italic;
+  }
   input:-webkit-autofill,
   input:-webkit-autofill:hover,
   input:-webkit-autofill:focus,
@@ -121,23 +119,5 @@
     -webkit-box-shadow: 0 0 0 30px var(--gray-50) inset !important;
     background-color: var(--gray-50) !important; /* fallback */
     -webkit-text-fill-color: var(--gray-900) !important;
-  }
-  .b1 {
-    @apply border border-red-500;
-  }
-  .b2 {
-    @apply border border-green-500;
-  }
-  .b3 {
-    @apply border border-amber-500;
-  }
-  .bg1 {
-    @apply bg-red-500/50;
-  }
-  .bg2 {
-    @apply bg-green-500/50;
-  }
-  .bg3 {
-    @apply bg-amber-500/50;
   }
 }
