@@ -15,7 +15,7 @@ interface ContactFormEmailProps {
   message: string;
 }
 
-// This is a React component that will be rendered to HTML on the server.
+// React component that will be rendered to HTML on the server.
 
 export const ContactFormEmail = ({
   senderEmail,
@@ -23,7 +23,7 @@ export const ContactFormEmail = ({
 }: ContactFormEmailProps): React.JSX.Element => (
   <Html>
     <Head />
-    <Preview>You've Got Mail</Preview>
+    <Preview>You&apos;ve Got Mail</Preview>
     <Body style={{ backgroundColor: "#f6f6f6", fontFamily: "sans-serif" }}>
       <Container
         style={{
