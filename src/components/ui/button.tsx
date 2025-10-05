@@ -6,23 +6,14 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "flex items-center justify-center gap-2 whitespace-nowrap transition-all duration-300 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-focus-ring focus-visible:ring-focus-ring focus-visible:ring-[2px] aria-invalid:ring-destructive/20 aria-invalid:border-destructive cursor-pointer",
+  "focus-visible:border-focus-ring focus-visible:ring-focus-ring aria-invalid:ring-destructive/20 aria-invalid:border-destructive flex shrink-0 cursor-pointer items-center justify-center gap-2 whitespace-nowrap transition-all duration-300 outline-none focus-visible:ring-[2px] disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
   {
     variants: {
       variant: {
         default:
-          "bg-primary text-primary-foreground shadow-xs hover:bg-primary/90",
-        destructive:
-          "bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
-        outline:
-          "border border-slate-200 bg-background shadow-sm hover:bg-slate-50 hover:text-slate-950 rounded-full",
-        secondary:
-          "bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80",
-        ghost:
-          "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
-        link: "text-primary underline-offset-4 hover:underline",
-        icon: "rounded-full cursor-pointer hover:border hover:border-gray-200 hover:bg-gray-50 p-2 disabled:opacity-0",
-        pi: "rounded-full cursor-pointer p-2 hover:border hover:border-slate-200 hover:bg-slate-100",
+          "rounded-sm border border-gray-200 bg-gray-50 px-4 py-3 text-sm font-medium whitespace-nowrap text-gray-800 hover:border-gray-300 hover:bg-gray-100 hover:text-gray-900 hover:shadow-sm has-[>svg]:px-3",
+        icon: "rounded-full border border-transparent p-2 hover:border-gray-200 hover:bg-gray-50 disabled:opacity-0",
+        pi: "rounded-full border border-transparent p-2 hover:border-gray-200 hover:bg-gray-50",
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",
