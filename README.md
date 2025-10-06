@@ -1,6 +1,6 @@
 ## Pyxis
 
-> Writer of `code`, copy, and narratives.
+> Writer of code, copy, and narratives.
 
 Pyxis is the complete source code and design system for the Oxypteros Portfolio. This repository serves as a public, living case study demonstrating a commitment to superior engineering, minimalistic design, and a professional development lifecycle.
 
